@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8BCCCA94-3F91-4C44-8A45-CD0847DF1D39}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Component\RDDeepSeek.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RDDeepSeek">
+        <MSBuild Projects="Component\RDDeepSeek.dproj"/>
+    </Target>
+    <Target Name="RDDeepSeek:Clean">
+        <MSBuild Projects="Component\RDDeepSeek.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RDDeepSeek:Make">
+        <MSBuild Projects="Component\RDDeepSeek.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RDDeepSeek"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RDDeepSeek:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RDDeepSeek:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
