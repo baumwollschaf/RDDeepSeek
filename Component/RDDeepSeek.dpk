@@ -30,4 +30,7 @@ package RDDeepSeek;
 requires
   rtl;
 
+contains
+  RD.DeepSeek.ViewModel in 'RD.DeepSeek.ViewModel.pas';
+
 end.
